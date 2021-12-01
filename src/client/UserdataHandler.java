@@ -71,7 +71,8 @@ public class UserdataHandler {
             if(!userFile.exists()){
                 userFile.createNewFile();
             }
-            BufferedWriter bw = new BufferedWriter(new FileWriter("userInfo.txt", true));
+		// this is the file being writen from and reading from for user handling
+            BufferedWriter bw = new BufferedWriter(new FileWriter("accounts.txt", true));
             bw.write(username + ","+hash);
             bw.newLine();
             bw.close();
@@ -89,7 +90,7 @@ public class UserdataHandler {
         HashMap<String , String> userMap = new HashMap<String, String>();
         try{
             
-            BufferedReader reader = new BufferedReader(new FileReader("userInfo.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("accounts.txt"));
             String line;
             String[] list = new String[2];
             while((line = reader.readLine()) != null) {
